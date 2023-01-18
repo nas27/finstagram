@@ -5,6 +5,7 @@ header {
 
 body {
     background-color: whitesmoke;
+    font-family: 'Inter', sans-serif;
   }
 
   main {
@@ -12,10 +13,37 @@ body {
     padding: 16px;
   }
 
+  .nav-main {
+    list-style-type: none;
+    margin: 0;
+    padding: 10;
+    float: left;
+    position: fixed;
+    top:0;
+    width:100%;
+  }
+
+  li {
+    display: inline;
+  }
+
   .finstagram-post {
     margin-bottom: 48px;
+    text-decoration: underline dotted;
+
   }
 
   .finstagram-post .user-info img {
     border-radius: 50%;
   }
+
+  a.photo {
+    transition: padding 0.5s;
+  }
+
+  a.photo:hover {
+    padding:10px;
+  }
+
+  
+
