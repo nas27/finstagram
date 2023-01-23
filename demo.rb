@@ -1,9 +1,4 @@
-#DATA TYPES
-
-#puts 'this is a string'
-#puts "this is a string"
-#age = 2 + 4
-#puts 5
+#FizzBuzz Code Group Question
  
 #fizz buzz question
 
@@ -21,7 +16,7 @@ for i in (1..15)
 end
 =end
 
-
+#inclass example
 def check_position(position)
     if position == "developer"
         puts 'here is your link #111'
