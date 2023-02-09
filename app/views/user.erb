@@ -1,0 +1,16 @@
+<header>
+    <h1>user </h1>
+
+</header>
+
+<main>
+    <h3> list of users from our database</h3>
+
+    <div style='display:flex; margin:10px'>
+        <% @users.each do |user| %>
+        <img src="<%=user.avatar_url %>" width="50%" height="50%" alt="<% user.username %>">
+        <h2><%= user.username %></h2>
+        <% end %>
+    </div>
+</main>
+

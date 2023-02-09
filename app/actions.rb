@@ -10,10 +10,33 @@ get '/' do
   erb(:index)
 end
 
+get '/users' do
+  #renders the users view
+  @users = User.all
+  erb(:users)
+end
+#we can read :property as params
+get '/users/:id' do 
+  @user = User.find(params[:id])
+  if @user 
+    erb(:user)
+  else
+    'user doesnt exist'
+  end
+ 
+end
+
+get '/users/:id/edit' do
+#to do
+end
+
+
 get '/signup' do #when a user navigates to url path/signup
   @user = User.new #create new empty user obj
   erb(:signup)
 end
+
+
 
 post '/signup' do
   email      = params[:email]
@@ -21,6 +44,7 @@ post '/signup' do
   username   = params[:username]
   password   = params[:password]
 
+  #below grabs the user details from the parameters
   @user = User.new({ email: email, avatar_url: avatar_url, username: username, password: password })
 
   if @user.save
@@ -46,6 +70,7 @@ post '/login' do
     session[:user_id] = @user.id
     redirect to('/')
     #"Success! User with id #{session[:user_id]} is logged in!"
+  
   else
     @error_message = "Login failed."
     erb(:login)
