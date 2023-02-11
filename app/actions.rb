@@ -10,6 +10,10 @@ get '/' do
   erb(:index)
 end
 
+
+
+
+
 get '/users' do
   #renders the users view
   @users = User.all
@@ -75,4 +79,23 @@ end
 get '/logout' do
   session[:user_id] = nil
   redirect to('/')
+end
+get '/finstagram_posts/new' do
+  @finstagram_post = FinstagramPost.new
+  erb(:"finstagram_posts/new")
+end
+
+post '/finstagram_posts' do
+  photo_url = params[:photo_url]
+
+  #instantiate a new FP
+  @finstagram_post = FinstagramPost.new({photo_url: photo_url, user_id: current_user.id})
+
+  #if post validaties, save it
+  if @finstagram_post.save
+    redirect(to('/'))
+  else
+
+    erb(:"finstagram_posts/new")
+  end
 end
