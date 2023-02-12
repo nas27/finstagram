@@ -85,6 +85,13 @@ get '/finstagram_posts/new' do
   erb(:"finstagram_posts/new")
 end
 
+
+get '/finstagram_posts/:id' do
+  @finstagram_post = FinstagramPost.find(params[:id])   # find the post with the ID from the URL
+  erb(:"finstagram_posts/show")               # render .../show.erb
+end
+
+
 post '/finstagram_posts' do
   photo_url = params[:photo_url]
 
